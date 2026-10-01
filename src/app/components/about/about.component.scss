@@ -1,0 +1,174 @@
+.about-section {
+  background: #060b14;
+  position: relative;
+  overflow: hidden;
+  padding-top: 130px; // accommodate statistics circles overlap
+  padding-bottom: 100px;
+}
+
+.about-image-wrapper {
+  position: relative;
+
+  .image-frame {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    background: #0a1120;
+  }
+
+  .about-svg-visual {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .floating-experience-badge {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    background: rgba(10, 17, 32, 0.9);
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 1rem 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    .badge-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #00d4ff, #0052d4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 1.4rem;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+    }
+
+    .badge-info {
+      display: flex;
+      flex-direction: column;
+
+      .badge-number {
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: #ffffff;
+        line-height: 1.1;
+      }
+
+      .badge-text {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.75);
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.about-content {
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #00d4ff;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+
+    .icon-cyan {
+      font-size: 1rem;
+    }
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+
+    .text-cyan {
+      color: #00d4ff;
+    }
+  }
+
+  .about-lead {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 1rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2.25rem;
+  }
+}
+
+.pillars-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.pillar-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border-radius: 14px;
+  background: rgba(15, 25, 45, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(15, 25, 45, 0.9);
+    border-color: rgba(0, 212, 255, 0.3);
+    transform: translateX(6px);
+
+    .pillar-icon {
+      background: #00d4ff;
+      color: #060b14;
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    }
+  }
+
+  .pillar-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(0, 212, 255, 0.1);
+    color: #00d4ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+
+  .pillar-details {
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.35rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0;
+      line-height: 1.5;
+    }
+  }
+}

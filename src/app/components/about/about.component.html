@@ -1,0 +1,121 @@
+<section id="about" class="about-section section-padding">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      
+      <!-- Left Column: Professional Electrical Installation Visual -->
+      <div class="col-lg-6">
+        <div class="about-image-wrapper">
+          <!-- Main Visual Container -->
+          <div class="image-frame">
+            <svg class="about-svg-visual" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#0b172a" />
+                  <stop offset="100%" stop-color="#040914" />
+                </linearGradient>
+                <linearGradient id="cyanBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#00d4ff" />
+                  <stop offset="100%" stop-color="#0052d4" />
+                </linearGradient>
+                <linearGradient id="glowPanel" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="rgba(0, 212, 255, 0.2)" />
+                  <stop offset="100%" stop-color="rgba(0, 82, 212, 0.05)" />
+                </linearGradient>
+              </defs>
+              <!-- Background -->
+              <rect width="600" height="500" rx="20" fill="url(#bgGrad)" />
+              <rect x="20" y="20" width="560" height="460" rx="14" stroke="rgba(0,212,255,0.2)" stroke-width="2" stroke-dasharray="8 8" />
+              
+              <!-- Electrical Board Schematic Graphic -->
+              <g transform="translate(60, 60)">
+                <!-- Main Cabinet Enclosure -->
+                <rect x="0" y="0" width="480" height="380" rx="12" fill="rgba(15, 23, 42, 0.8)" stroke="rgba(0,212,255,0.3)" stroke-width="2"/>
+                <!-- DIN Rails -->
+                <rect x="30" y="50" width="420" height="12" fill="#1e293b" rx="3"/>
+                <rect x="30" y="170" width="420" height="12" fill="#1e293b" rx="3"/>
+                <rect x="30" y="290" width="420" height="12" fill="#1e293b" rx="3"/>
+
+                <!-- Breakers & Switches Row 1 -->
+                <rect x="50" y="30" width="50" height="50" rx="4" fill="url(#cyanBlue)"/>
+                <rect x="110" y="35" width="35" height="40" rx="4" fill="#334155"/>
+                <rect x="150" y="35" width="35" height="40" rx="4" fill="#334155"/>
+                <rect x="190" y="35" width="35" height="40" rx="4" fill="#334155"/>
+                <rect x="235" y="30" width="70" height="50" rx="4" fill="#0284c7"/>
+                <rect x="315" y="35" width="35" height="40" rx="4" fill="#334155"/>
+                <rect x="355" y="35" width="35" height="40" rx="4" fill="#334155"/>
+                <circle cx="75" cy="55" r="5" fill="#ffffff"/>
+
+                <!-- Breakers Row 2 -->
+                <rect x="50" y="155" width="70" height="50" rx="4" fill="#0284c7"/>
+                <rect x="130" y="160" width="35" height="40" rx="4" fill="#334155"/>
+                <rect x="170" y="160" width="35" height="40" rx="4" fill="#334155"/>
+                <rect x="210" y="160" width="35" height="40" rx="4" fill="#334155"/>
+                <rect x="255" y="155" width="90" height="50" rx="4" fill="url(#cyanBlue)"/>
+                <rect x="355" y="160" width="75" height="40" rx="4" fill="#334155"/>
+
+                <!-- Animated Wiring Circuits -->
+                <path d="M75,80 L75,155 M127,75 L127,160 M270,80 L270,155 M300,205 L300,290" stroke="#00d4ff" stroke-width="3" stroke-linecap="round"/>
+                <path d="M200,80 L200,120 L400,120 L400,160" stroke="#0052d4" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4"/>
+                
+                <!-- Status LEDs -->
+                <circle cx="430" cy="30" r="6" fill="#10b981"><animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/></circle>
+                <circle cx="430" cy="50" r="6" fill="#00d4ff"><animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" repeatCount="indefinite"/></circle>
+                <circle cx="430" cy="70" r="6" fill="#f59e0b"/>
+              </g>
+            </svg>
+
+            <!-- Floating Badge Card -->
+            <div class="floating-experience-badge">
+              <div class="badge-icon">
+                <i class="fa-solid fa-certificate"></i>
+              </div>
+              <div class="badge-info">
+                <span class="badge-number">100%</span>
+                <span class="badge-text">Conformité & Sécurité</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Content -->
+      <div class="col-lg-6">
+        <div class="about-content">
+          <div class="section-tag">
+            <i class="fa-solid fa-bolt icon-cyan"></i>
+            <span>EXCELLENCE ÉLECTRIQUE</span>
+          </div>
+          
+          <h2 class="section-title">
+            À propos de <span class="text-cyan">SOBEM</span>
+          </h2>
+          
+          <p class="about-lead">
+            <strong>SOBEM – Société Ben Abdellatif d’Électricité Moderne</strong> accompagne ses clients dans leurs projets électriques en proposant des solutions adaptées à leurs besoins.
+          </p>
+          
+          <p class="about-text">
+            Notre approche repose sur la qualité du travail, la fiabilité des installations et le professionnalisme. Forts d'une solide expérience sur le terrain, nous concrétisons vos projets tertiaires, industriels et résidentiels en respectant scrupuleusement les exigences normatives.
+          </p>
+
+          <!-- 3 Pillars (Qualité, Fiabilité, Professionnalisme) -->
+          <div class="pillars-grid">
+            @for (pillar of pillars; track pillar.title) {
+              <div class="pillar-card">
+                <div class="pillar-icon">
+                  <i [class]="pillar.icon"></i>
+                </div>
+                <div class="pillar-details">
+                  <h4>{{ pillar.title }}</h4>
+                  <p>{{ pillar.description }}</p>
+                </div>
+              </div>
+            }
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

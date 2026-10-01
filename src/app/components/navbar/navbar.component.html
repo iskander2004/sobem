@@ -1,0 +1,67 @@
+<header class="site-header" [class.scrolled]="isScrolled()">
+  <div class="container nav-container">
+    <!-- Brand Logo -->
+    <a (click)="scrollTo('hero')" class="brand-logo" role="button" tabindex="0">
+      <div class="logo-icon">
+        <i class="fa-solid fa-bolt-lightning"></i>
+      </div>
+      <div class="logo-text">
+        <span class="brand-title">SOBEM</span>
+        <span class="brand-sub">Électricité Moderne</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="desktop-nav">
+      <ul>
+        @for (link of navLinks; track link.target) {
+          <li>
+            <a 
+              (click)="scrollTo(link.target)"
+              [class.active]="activeSection() === link.target"
+              role="button"
+              tabindex="0">
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+      <button (click)="scrollTo('contact')" class="btn btn-sm btn-primary nav-cta">
+        Devis Express
+      </button>
+    </nav>
+
+    <!-- Mobile Hamburger Button -->
+    <button 
+      class="mobile-hamburger" 
+      [class.open]="mobileMenuOpen()" 
+      (click)="toggleMobileMenu()"
+      aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer" [class.show]="mobileMenuOpen()">
+    <ul>
+      @for (link of navLinks; track link.target) {
+        <li>
+          <a 
+            (click)="scrollTo(link.target)"
+            [class.active]="activeSection() === link.target"
+            role="button"
+            tabindex="0">
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+    <div class="mobile-drawer-cta">
+      <button (click)="scrollTo('contact')" class="btn btn-primary w-100">
+        <i class="fa-solid fa-paper-plane me-2"></i> Demander un devis
+      </button>
+    </div>
+  </div>
+</header>

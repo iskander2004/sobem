@@ -1,0 +1,40 @@
+<section id="expertise" class="expertise-section section-padding">
+  <!-- Glowing Background Orbs -->
+  <div class="expertise-glow"></div>
+
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div class="section-header text-center">
+      <div class="section-tag">
+        <i class="fa-solid fa-chart-line icon-cyan"></i>
+        <span>CHIFFRES CLÉS</span>
+      </div>
+      <h2 class="section-title">
+        Notre Expertise en <span class="text-cyan">Chiffres</span>
+      </h2>
+      <p class="section-subtitle">
+        Des indicateurs de réussite démontrant notre engagement constant au service de la sécurité et de la performance.
+      </p>
+    </div>
+
+    <!-- Expertise Cards Grid -->
+    <div class="expertise-grid">
+      @for (item of expertiseList; track item.id) {
+        <div class="expertise-card">
+          <div class="card-top-icon">
+            <i [class]="item.icon"></i>
+          </div>
+
+          <div class="stat-big-value">
+            <span class="num">{{ item.animatedValue }}</span><span class="suffix">{{ item.suffix }}</span>
+          </div>
+
+          <h3 class="stat-card-label">{{ item.label }}</h3>
+          <p class="stat-card-desc">{{ item.description }}</p>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

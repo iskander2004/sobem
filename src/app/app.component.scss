@@ -1,0 +1,12 @@
+.sobem-app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #060b14;
+  color: #ffffff;
+  overflow-x: hidden;
+
+  main {
+    flex: 1 0 auto;
+  }
+}

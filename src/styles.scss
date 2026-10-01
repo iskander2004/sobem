@@ -1,0 +1,274 @@
+/* ==========================================================================
+   SOBEM - Société Ben Abdellatif d’Électricité Moderne
+   Global SCSS Design System
+   ========================================================================== */
+
+:root {
+  --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+
+  /* Color Palette */
+  --bg-dark: #060b14;
+  --bg-dark-alt: #0a1120;
+  --bg-card: rgba(14, 24, 44, 0.7);
+  
+  --cyan-accent: #00d4ff;
+  --cyan-glow: rgba(0, 212, 255, 0.4);
+  --blue-primary: #0052d4;
+  --blue-dark: #071530;
+  
+  --text-main: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.75);
+  --text-dim: rgba(255, 255, 255, 0.5);
+
+  --border-light: rgba(255, 255, 255, 0.08);
+  --border-cyan: rgba(0, 212, 255, 0.3);
+}
+
+/* Reset & Global Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-main);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--cyan-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Section Common Layouts */
+.section-padding {
+  padding: 100px 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.text-center { text-align: center; }
+.text-start { text-align: left; }
+.text-end { text-align: right; }
+
+.section-header {
+  max-width: 760px;
+  margin: 0 auto 3.5rem;
+
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--cyan-accent);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+
+    .icon-cyan {
+      font-size: 1rem;
+    }
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1rem;
+
+    .text-cyan {
+      color: var(--cyan-accent);
+    }
+  }
+
+  .section-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+/* Flex Grid Utilities */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+}
+
+.g-4 {
+  margin-left: -1rem;
+  margin-right: -1rem;
+  > [class*="col-"] {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.g-5 {
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
+  > [class*="col-"] {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.col-12 { flex: 0 0 100%; max-width: 100%; }
+.col-lg-3 { flex: 0 0 25%; max-width: 25%; }
+.col-lg-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+.col-lg-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+.col-lg-6 { flex: 0 0 50%; max-width: 50%; }
+.col-lg-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
+.col-lg-12 { flex: 0 0 100%; max-width: 100%; }
+
+.col-md-6 { flex: 0 0 50%; max-width: 50%; }
+.col-md-12 { flex: 0 0 100%; max-width: 100%; }
+
+.align-items-center { align-items: center; }
+.align-items-stretch { align-items: stretch; }
+.justify-content-center { justify-content: center; }
+
+@media (max-width: 991px) {
+  .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .section-padding {
+    padding: 70px 0;
+  }
+}
+
+/* Custom Buttons System */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.85rem;
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  white-space: nowrap;
+
+  &.btn-sm {
+    padding: 0.55rem 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  &.btn-lg {
+    padding: 1.05rem 2.25rem;
+    font-size: 1.05rem;
+  }
+
+  &.btn-primary {
+    background: linear-gradient(135deg, var(--cyan-accent) 0%, var(--blue-primary) 100%);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 20px var(--cyan-glow);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 212, 255, 0.6);
+      color: #ffffff;
+    }
+  }
+
+  &.btn-outline {
+    background: rgba(10, 17, 32, 0.6);
+    border: 1px solid var(--border-cyan);
+    color: #ffffff;
+    backdrop-filter: blur(10px);
+
+    &:hover {
+      background: rgba(0, 212, 255, 0.15);
+      border-color: var(--cyan-accent);
+      color: var(--cyan-accent);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.w-100 { width: 100%; }
+
+/* Global Animations */
+.animate-fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease forwards;
+}
+
+.animate-slide-up-delay {
+  animation: slideUp 0.8s 0.2s ease backwards;
+}
+
+.animate-slide-up-delay-2 {
+  animation: slideUp 0.8s 0.4s ease backwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.8s ease forwards;
+}
+
+.animate-fade-in-delay {
+  animation: fadeIn 1s 0.6s ease backwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

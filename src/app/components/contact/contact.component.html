@@ -1,0 +1,221 @@
+<section id="contact" class="contact-section section-padding">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div class="section-header text-center">
+      <div class="section-tag">
+        <i class="fa-solid fa-paper-plane icon-cyan"></i>
+        <span>DISCUTONS DE VOTRE PROJET</span>
+      </div>
+      <h2 class="section-title">
+        Contactez <span class="text-cyan">SOBEM</span>
+      </h2>
+      <p class="section-subtitle">
+        Une question, un devis ou une intervention ? Nos experts électriques sont à votre disposition pour vous répondre rapidement.
+      </p>
+    </div>
+
+    <div class="row g-5 align-items-stretch">
+      
+      <!-- Left Column: Information -->
+      <div class="col-lg-5">
+        <div class="contact-info-card">
+          <h3 class="info-card-title">Coordonnées</h3>
+          <p class="info-card-intro">
+            Retrouvez ci-dessous toutes les informations nécessaires pour joindre SOBEM.
+          </p>
+
+          <div class="info-items-list">
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="info-text">
+                <span class="label">Adresse</span>
+                <span class="value">{{ contactInfo.address }}</span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div class="info-text">
+                <span class="label">Téléphone</span>
+                <span class="value">{{ contactInfo.phone }}</span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="info-text">
+                <span class="label">Email</span>
+                <span class="value">{{ contactInfo.email }}</span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fa-solid fa-clock"></i>
+              </div>
+              <div class="info-text">
+                <span class="label">Horaires de travail</span>
+                <span class="value">{{ contactInfo.hours }}</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Emergency Banner -->
+          <div class="emergency-banner">
+            <div class="banner-icon">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <div class="banner-text">
+              <strong>Besoin d'un devis ou d'un conseil technique ?</strong>
+              <span>Remplissez le formulaire ci-contre et notre équipe vous recontactera sous 24h.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Form -->
+      <div class="col-lg-7">
+        <div class="contact-form-card">
+          <h3 class="form-card-title">Envoyez-nous un message</h3>
+
+          @if (isSuccess()) {
+            <div class="alert alert-success animate-fade-in" role="alert">
+              <i class="fa-solid fa-circle-check me-2"></i>
+              Votre message a été validé ! Notre équipe prendra contact avec vous dans les plus brefs délais.
+            </div>
+          }
+
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+            
+            <div class="row g-4">
+              
+              <!-- Nom et prénom -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="fullName" class="form-label">Nom et prénom <span class="required">*</span></label>
+                  <input 
+                    type="text" 
+                    id="fullName" 
+                    formControlName="fullName" 
+                    class="form-control" 
+                    [class.is-invalid]="isSubmitted() && f['fullName'].invalid" 
+                    placeholder="Ex: Jean Dupont">
+                  @if (isSubmitted() && f['fullName'].errors) {
+                    <div class="invalid-feedback">
+                      @if (f['fullName'].errors['required']) { Le nom et prénom est obligatoire. }
+                      @if (f['fullName'].errors['minlength']) { Doit contenir au moins 3 caractères. }
+                    </div>
+                  }
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="email" class="form-label">Adresse Email <span class="required">*</span></label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    formControlName="email" 
+                    class="form-control" 
+                    [class.is-invalid]="isSubmitted() && f['email'].invalid" 
+                    placeholder="Ex: exemple@domaine.com">
+                  @if (isSubmitted() && f['email'].errors) {
+                    <div class="invalid-feedback">
+                      @if (f['email'].errors['required']) { L'adresse email est obligatoire. }
+                      @if (f['email'].errors['email']) { Veuillez entrer une adresse email valide. }
+                    </div>
+                  }
+                </div>
+              </div>
+
+              <!-- Téléphone -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="phone" class="form-label">Téléphone <span class="required">*</span></label>
+                  <input 
+                    type="tel" 
+                    id="phone" 
+                    formControlName="phone" 
+                    class="form-control" 
+                    [class.is-invalid]="isSubmitted() && f['phone'].invalid" 
+                    placeholder="Ex: +216 98 000 000">
+                  @if (isSubmitted() && f['phone'].errors) {
+                    <div class="invalid-feedback">
+                      @if (f['phone'].errors['required']) { Le numéro de téléphone est obligatoire. }
+                      @if (f['phone'].errors['pattern']) { Format de téléphone invalide. }
+                    </div>
+                  }
+                </div>
+              </div>
+
+              <!-- Sujet -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="subject" class="form-label">Sujet <span class="required">*</span></label>
+                  <select 
+                    id="subject" 
+                    formControlName="subject" 
+                    class="form-select" 
+                    [class.is-invalid]="isSubmitted() && f['subject'].invalid">
+                    <option value="" disabled selected>Sélectionnez un sujet</option>
+                    <option value="Devis gratuit">Demande de devis</option>
+                    <option value="Installation électrique">Installation électrique</option>
+                    <option value="Maintenance & Dépannage">Maintenance & Dépannage</option>
+                    <option value="Électricité industrielle">Électricité industrielle</option>
+                    <option value="Autre demande">Autre demande</option>
+                  </select>
+                  @if (isSubmitted() && f['subject'].errors) {
+                    <div class="invalid-feedback">
+                      Veuillez choisir un sujet.
+                    </div>
+                  }
+                </div>
+              </div>
+
+              <!-- Message -->
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="message" class="form-label">Message <span class="required">*</span></label>
+                  <textarea 
+                    id="message" 
+                    formControlName="message" 
+                    rows="5" 
+                    class="form-control" 
+                    [class.is-invalid]="isSubmitted() && f['message'].invalid" 
+                    placeholder="Décrivez votre projet ou votre besoin électrique en détail..."></textarea>
+                  @if (isSubmitted() && f['message'].errors) {
+                    <div class="invalid-feedback">
+                      @if (f['message'].errors['required']) { Le message est obligatoire. }
+                      @if (f['message'].errors['minlength']) { Le message doit faire au moins 10 caractères. }
+                    </div>
+                  }
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="col-12 text-end">
+                <button type="submit" class="btn btn-primary btn-lg btn-glow w-100-mobile">
+                  <i class="fa-solid fa-paper-plane me-2"></i>
+                  <span>Envoyer le message</span>
+                </button>
+              </div>
+
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

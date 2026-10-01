@@ -1,0 +1,124 @@
+.statistics-section {
+  position: relative;
+  z-index: 20;
+  margin-top: -75px;
+  margin-bottom: -75px;
+  pointer-events: none;
+}
+
+.stats-circles-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  pointer-events: auto;
+}
+
+.stat-circle-card {
+  width: 210px;
+  height: 210px;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+
+  &:hover {
+    transform: translateY(-8px) scale(1.04);
+
+    .circle-outer-ring {
+      border-color: #00d4ff;
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.4), inset 0 0 20px rgba(0, 212, 255, 0.2);
+    }
+
+    .stat-icon {
+      transform: scale(1.15) rotate(5deg);
+      color: #00d4ff;
+    }
+  }
+}
+
+.circle-outer-ring {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  padding: 8px;
+  background: linear-gradient(135deg, rgba(16, 30, 56, 0.95), rgba(6, 12, 24, 0.98));
+  border: 2px solid rgba(0, 212, 255, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(0, 212, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+.circle-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.25rem;
+}
+
+.stat-icon {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.stat-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+
+  .prefix {
+    color: #00d4ff;
+    margin-right: 2px;
+  }
+
+  .value {
+    background: linear-gradient(180deg, #ffffff 0%, #dcdcdc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  max-width: 130px;
+  line-height: 1.25;
+}
+
+@media (max-width: 991px) {
+  .statistics-section {
+    margin-top: -40px;
+    margin-bottom: -40px;
+  }
+
+  .stats-circles-wrapper {
+    gap: 1.75rem;
+  }
+
+  .stat-circle-card {
+    width: 170px;
+    height: 170px;
+  }
+
+  .stat-number {
+    font-size: 1.75rem;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+  }
+}

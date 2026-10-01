@@ -1,0 +1,25 @@
+<section id="statistics" class="statistics-section">
+  <div class="container">
+    <div class="stats-circles-wrapper">
+      @for (stat of statistics; track stat.id) {
+        <div class="stat-circle-card">
+          <div class="circle-outer-ring">
+            <div class="circle-inner">
+              @if (stat.icon) {
+                <div class="stat-icon">
+                  <i [class]="stat.icon"></i>
+                </div>
+              }
+              <div class="stat-number">
+                <span class="prefix">+</span><span class="value">{{ stat.animatedValue }}</span>
+              </div>
+              <div class="stat-label">
+                {{ stat.label }}
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,53 @@
+<section id="services" class="services-section section-padding">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div class="section-header text-center">
+      <div class="section-tag">
+        <i class="fa-solid fa-bolt icon-cyan"></i>
+        <span>NOS COMPÉTENCES</span>
+      </div>
+      <h2 class="section-title">
+        Nos Solutions & Services <span class="text-cyan">Électriques</span>
+      </h2>
+      <p class="section-subtitle">
+        Des prestations sur mesure pensées pour garantir performance, sécurité et pérennité à vos infrastructures électriques.
+      </p>
+    </div>
+
+    <!-- Services Grid using @for (service of services; track service.id) -->
+    <div class="services-grid">
+      @for (service of services; track service.id) {
+        <div class="service-card">
+          <div class="card-glow-bg"></div>
+          
+          <div class="service-icon-wrapper">
+            <i [class]="service.icon"></i>
+          </div>
+
+          <h3 class="service-title">{{ service.title }}</h3>
+          <p class="service-description">{{ service.description }}</p>
+
+          @if (service.features && service.features.length) {
+            <ul class="service-features-list">
+              @for (feature of service.features; track feature) {
+                <li>
+                  <i class="fa-solid fa-circle-check icon-cyan"></i>
+                  <span>{{ feature }}</span>
+                </li>
+              }
+            </ul>
+          }
+
+          <div class="service-card-footer">
+            <button (click)="scrollToContact(service.title)" class="btn-link-action">
+              <span>Demander un devis</span>
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

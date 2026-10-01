@@ -1,0 +1,97 @@
+<section id="projects" class="projects-section section-padding">
+  <div class="container">
+
+    <!-- Section Header -->
+    <div class="section-header text-center">
+      <div class="section-tag">
+        <i class="fa-solid fa-bolt icon-cyan"></i>
+        <span>RÉALISATIONS</span>
+      </div>
+      <h2 class="section-title">
+        Nos Projets & <span class="text-cyan">Réalisations</span>
+      </h2>
+      <p class="section-subtitle">
+        Découvrez quelques-uns de nos projets récents à travers différentes catégories industrielles, tertiaires et résidentielles.
+      </p>
+    </div>
+
+    <!-- Category Filter Bar -->
+    <div class="filter-bar text-center">
+      @for (cat of categories; track cat) {
+        <button 
+          (click)="setCategory(cat)"
+          [class.active]="selectedCategory() === cat"
+          class="btn-filter">
+          {{ cat }}
+        </button>
+      }
+    </div>
+
+    <!-- Projects Grid Gallery -->
+    <div class="projects-grid">
+      @for (project of filteredProjects(); track project.id) {
+        <div class="project-card">
+          <!-- Image Container -->
+          <div class="project-image-box">
+            <!-- Project SVG Graphic / Image Placeholder -->
+            <svg class="project-svg-graphic" viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="pGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#0e1d35" />
+                  <stop offset="100%" stop-color="#050a12" />
+                </linearGradient>
+                <linearGradient id="pCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#00d4ff" />
+                  <stop offset="100%" stop-color="#0052d4" />
+                </linearGradient>
+              </defs>
+              <rect width="400" height="280" fill="url(#pGrad1)"/>
+              
+              <!-- Blueprint Grid Lines -->
+              <path d="M0,70 L400,70 M0,140 L400,140 M0,210 L400,210 M100,0 L100,280 M200,0 L200,280 M300,0 L300,280" stroke="rgba(0,212,255,0.06)" stroke-width="1"/>
+              
+              <!-- Electrical Symbol Blueprint Graphic -->
+              <g transform="translate(60, 40)">
+                <rect x="0" y="0" width="280" height="180" rx="10" stroke="rgba(0,212,255,0.25)" stroke-width="2" fill="rgba(0,0,0,0.3)"/>
+                <circle cx="70" cy="90" r="35" stroke="url(#pCyan)" stroke-width="3" fill="none"/>
+                <path d="M70,55 L70,125 M35,90 L105,90" stroke="#00d4ff" stroke-width="2"/>
+                <rect x="150" y="50" width="100" height="80" rx="6" fill="#1e293b" stroke="#0284c7" stroke-width="2"/>
+                <line x1="170" y1="90" x2="230" y2="90" stroke="#00d4ff" stroke-width="3"/>
+                <circle cx="200" cy="90" r="6" fill="#10b981"/>
+              </g>
+
+              <!-- Category Badge Tag -->
+              <rect x="20" y="20" width="110" height="28" rx="14" fill="rgba(0,212,255,0.2)" stroke="rgba(0,212,255,0.4)"/>
+              <text x="75" y="38" fill="#ffffff" font-size="12" font-weight="600" text-anchor="middle">{{ project.category }}</text>
+            </svg>
+
+            <!-- Overlay on Hover -->
+            <div class="project-overlay">
+              <div class="overlay-content">
+                <span class="overlay-category">{{ project.category }}</span>
+                <h4 class="overlay-title">{{ project.title }}</h4>
+                <p class="overlay-desc">{{ project.description }}</p>
+                <div class="overlay-meta">
+                  @if (project.location) {
+                    <span><i class="fa-solid fa-location-dot me-1 icon-cyan"></i> {{ project.location }}</span>
+                  }
+                  @if (project.year) {
+                    <span><i class="fa-solid fa-calendar me-1 icon-cyan"></i> {{ project.year }}</span>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Bottom Meta -->
+          <div class="project-card-body">
+            <span class="project-cat-badge">{{ project.category }}</span>
+            <h3 class="project-card-title">{{ project.title }}</h3>
+            <p class="project-card-excerpt">{{ project.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

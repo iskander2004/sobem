@@ -1,0 +1,67 @@
+<section id="hero" class="hero-section">
+  <!-- Glowing Background & Grid Overlay -->
+  <div class="hero-bg-overlay"></div>
+  <div class="hero-grid-pattern"></div>
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+
+  <div class="container hero-container">
+    <div class="hero-content animate-fade-in">
+      
+      <!-- Company Subtitle Badge -->
+      <div class="company-badge animate-slide-down">
+        <span class="pulse-dot"></span>
+        <span class="badge-title">SOBEM</span>
+        <span class="badge-divider">•</span>
+        <span class="badge-sub">Société Ben Abdellatif d’Électricité Moderne</span>
+      </div>
+
+      <!-- Main Title -->
+      <h1 class="hero-title animate-slide-up">
+        Des solutions électriques <span class="gradient-text">modernes</span> et <span class="highlight-cyan">fiables</span> pour vos projets
+      </h1>
+
+      <!-- Subtitle Description -->
+      <p class="hero-description animate-slide-up-delay">
+        Nous accompagnons nos clients dans la réalisation de leurs projets électriques avec professionnalisme, qualité et savoir-faire.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="hero-actions animate-slide-up-delay-2">
+        <button (click)="scrollTo('services')" class="btn btn-primary btn-lg btn-glow">
+          <span>Découvrir nos services</span>
+          <i class="fa-solid fa-arrow-right-long ms-2"></i>
+        </button>
+
+        <button (click)="scrollTo('projects')" class="btn btn-outline btn-lg">
+          <i class="fa-solid fa-folder-open me-2"></i>
+          <span>Voir nos projets</span>
+        </button>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="hero-features-strip animate-fade-in-delay">
+        <div class="strip-item">
+          <i class="fa-solid fa-check-double icon-cyan"></i>
+          <span>Normes de sécurité ISO & NFC</span>
+        </div>
+        <div class="strip-item">
+          <i class="fa-solid fa-shield-halved icon-cyan"></i>
+          <span>Expertise industrielle & tertiaire</span>
+        </div>
+        <div class="strip-item">
+          <i class="fa-solid fa-bolt icon-cyan"></i>
+          <span>Support & Intervention rapide</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll Down Indicator -->
+  <a (click)="scrollTo('statistics')" class="scroll-indicator" aria-label="Scroll down">
+    <span class="scroll-mouse">
+      <span class="scroll-wheel"></span>
+    </span>
+  </a>
+</section>
